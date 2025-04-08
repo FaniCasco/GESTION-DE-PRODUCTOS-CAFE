@@ -1,0 +1,67 @@
+```
+└── 📁registro-productos
+    └── 📁public
+        └── favicon.ico
+        └── index.html
+        └── manifest.json
+    └── 📁src
+        └── App.css
+        └── App.js
+        └── App.test.js
+        └── 📁assets
+            └── 📁images
+                └── blend-brasil-colombia.jpg
+                └── bolivia-peaberry.jpg
+                └── brasil-anaerobico.jpg
+                └── brasil-catucai.jpg
+                └── colombia-honey.jpg
+                └── colombia-huila.jpg
+                └── logo.png
+        └── 📁components
+            └── ClienteForm.js
+            └── Clientes.js
+            └── Nav.js
+            └── ProductoForm.js
+            └── Productos.js
+            └── Stock.js
+            └── StockForm.js
+            └── VentaForm.js
+            └── Ventas.js
+        └── index.css
+        └── index.js
+        └── 📁pages
+            └── ClientesPage.js
+            └── InicioPage.js
+            └── ProductoFormPage.js
+            └── ProductosPage.js
+            └── StockPage.js
+            └── VentasPage.js
+        └── setupTests.js
+        └── 📁Styles
+            └── Nav.css
+            └── ProductosForm.css
+            └── ProductosPage.css
+    └── .gitignore
+    └── package-lock.json
+    └── package.json
+    └── README.md
+```
+└── 📁server
+    └── 📁assets
+        └── 📁images
+            └── 1743461295787-blend-brasil-colombia.jpg
+            └── 1743461343904-blend-brasil-colombia.jpg
+            └── 1743462464023-blend-brasil-colombia.jpg
+            └── 1743504099646-blend-brasil-colombia.jpg
+            └── 1743504598429-blend-brasil-colombia.jpg
+    └── 📁routes
+        └── clientes.js
+        └── productos.js
+        └── stock.js
+        └── ventas.js
+    └── .env
+    └── db.js
+    └── index.js
+    └── package-lock.json
+    └── package.json
+```

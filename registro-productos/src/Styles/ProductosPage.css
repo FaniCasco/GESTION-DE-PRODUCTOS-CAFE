@@ -1,0 +1,72 @@
+/*Styles/ProductosPage.css*/
+.productos-container {
+  text-align: center;
+  padding: 20px;
+  background-color: #f3daac;
+}
+.producto-form-page {
+  text-align: center;
+margin-top: -5%;
+
+}
+.producto-form-page h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.productos-table {
+  font-family: Karla, sans-serif;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  
+}
+
+.productos-table th, .productos-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.productos-table th {
+  background-color: #333;
+  color: white;
+}
+
+.no-data {
+  text-align: center;
+  font-size: 18px;
+  padding: 20px;
+  color: #777;
+}
+
+
+.modal {
+  display: flex !important; /* Asegura que se muestre */
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  z-index: 1000;
+}
+
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 300px;
+  max-width: 500px;
+}
+
+.close {
+  font-size: 24px;
+  cursor: pointer;
+}
+

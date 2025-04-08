@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+}
+
+.app-container {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  width: 100%; /* Asegura que el contenido ocupe todo el ancho */
+  margin: 0 auto; /* Elimina márgenes innecesarios */
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+  flex: 1; /* Permite que el contenido principal ocupe todo el espacio disponible */
+  padding-bottom: 80px; /* Aumenta el padding inferior para asegurar espacio */
+}
+
+.registro-container {
+  padding: 20px;
+  background: #2c1b1600;
+  box-shadow: 0 0 15px #2c1b16;
+  border-radius: 10px;
+}
+
+
+

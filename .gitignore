@@ -1,0 +1,9 @@
+.qodo
+# Archivos de entorno
+.env
+*.env
+
+# Otros archivos ignorados
+node_modules/
+.DS_Store
+dist/
