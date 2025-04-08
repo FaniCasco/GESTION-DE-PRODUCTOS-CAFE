@@ -42,8 +42,13 @@
 }
 
 .agregar-cliente-btn {
-  background-color: #4caf50;
+  background-color:  #0d7dda;;
   color: white;
+  font-family: karla, sans-serif;
+  font-weight: 500;
+}
+.agregar-cliente-btn:hover {
+  background-color: #4caf50; 
 }
 
 .editar-cliente-btn {

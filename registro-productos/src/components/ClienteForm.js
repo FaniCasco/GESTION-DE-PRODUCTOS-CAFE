@@ -3,9 +3,10 @@ import axios from 'axios';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Swal from 'sweetalert2';
+import { FaSave, FaTimes, FaEdit } from 'react-icons/fa';
 import '../Styles/ClientesForm.css';
 
-function ClienteForm({ cliente, onClienteCreado, onClienteActualizado, onCancel, onClienteAgregado }) { 
+function ClienteForm({ cliente, onClienteCreado, onClienteActualizado, onCancel, onClienteAgregado }) {
   const [dni, setDni] = useState('');
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
@@ -55,7 +56,7 @@ function ClienteForm({ cliente, onClienteCreado, onClienteActualizado, onCancel,
         if (onClienteActualizado) {
           onClienteActualizado();
         }
-    } else {
+      } else {
         await axios.post('http://localhost:5000/clientes', data);
         Swal.fire('Creado', 'Cliente creado con éxito', 'success');
         if (onClienteCreado) {
@@ -77,57 +78,69 @@ function ClienteForm({ cliente, onClienteCreado, onClienteActualizado, onCancel,
 
   return (
     <Container>
-      <div className="formulario formulario-clintes">
-        <h2>{cliente ? 'Editar Cliente' : 'Agregar Cliente'}</h2>
-        <Form onSubmit={handleSubmit}>
-          <Row>
-            <Col>
-              <Form.Group controlId="formNombre">
-                <Form.Label>Nombre</Form.Label>
-                <Form.Control type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} required />
-              </Form.Group>
-            </Col>
-            <Col>
-              <Form.Group controlId="formApellido">
-                <Form.Label>Apellido</Form.Label>
-                <Form.Control type="text" value={apellido} onChange={(e) => setApellido(e.target.value)} required />
-              </Form.Group>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <Form.Group controlId="formDomicilio">
-                <Form.Label>Domicilio</Form.Label>
-                <Form.Control type="text" value={domicilio} onChange={(e) => setDomicilio(e.target.value)} required />
-              </Form.Group>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <Form.Group controlId="formTelefono">
-                <Form.Label>Teléfono</Form.Label>
-                <Form.Control type="text" value={telefono} onChange={(e) => setTelefono(e.target.value)} required />
-              </Form.Group>
-            </Col>
-            <Col>
-              <Form.Group controlId="formDni">
-                <Form.Label>DNI</Form.Label>
-                <Form.Control type="text" value={dni} onChange={(e) => setDni(e.target.value)} required />
-              </Form.Group>
-            </Col>
-          </Row>
-          <Button variant="primary" type="submit">
-            {cliente ? 'ACTUALIZAR' : 'AGREGAR'}
+    <div className="formulario formulario-clintes">
+      <h2>{cliente ? 'Editar Cliente' : 'Agregar Cliente'}</h2>
+      <Form onSubmit={handleSubmit}>
+        <Row>
+          <Col>
+            <Form.Group controlId="formNombre">
+              <Form.Label>Nombre</Form.Label>
+              <Form.Control type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} required />
+            </Form.Group>
+          </Col>
+          <Col>
+            <Form.Group controlId="formApellido">
+              <Form.Label>Apellido</Form.Label>
+              <Form.Control type="text" value={apellido} onChange={(e) => setApellido(e.target.value)} required />
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Form.Group controlId="formDomicilio">
+              <Form.Label>Domicilio</Form.Label>
+              <Form.Control type="text" value={domicilio} onChange={(e) => setDomicilio(e.target.value)} required />
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Form.Group controlId="formTelefono">
+              <Form.Label>Teléfono</Form.Label>
+              <Form.Control type="text" value={telefono} onChange={(e) => setTelefono(e.target.value)} required />
+            </Form.Group>
+          </Col>
+          <Col>
+            <Form.Group controlId="formDni">
+              <Form.Label>DNI</Form.Label>
+              <Form.Control type="text" value={dni} onChange={(e) => setDni(e.target.value)} required />
+            </Form.Group>
+          </Col>
+        </Row>
+        <div className="d-flex gap-3 mt-4">
+          <Button
+            variant={cliente ? "warning" : "success"}
+            type="submit"
+            className="px-4 py-2 fw-bold d-flex align-items-center gap-2"
+          >
+            {cliente ? <FaEdit /> : <FaSave />}
+            {cliente ? 'Actualizar' : 'Agregar'}
           </Button>
-          {cliente && (
-            <Button variant="secondary" onClick={onCancel}>
-              Cancelar
-            </Button>
-          )}
-        </Form>
-      </div>
-    </Container>
-  );
+
+          {/* Botón Cancelar - Ahora SIEMPRE visible */}
+          <Button
+            variant={cliente ? "outline-danger" : "outline-secondary"}  // Rojo al editar, Gris al agregar
+            onClick={onCancel}  // Asegúrate de que `onCancel` esté definido desde el componente padre
+            className="px-4 py-2 fw-bold d-flex align-items-center gap-2 cancelar"
+          >
+            <FaTimes />
+            Cancelar
+          </Button>
+        </div>
+      </Form>
+    </div>
+  </Container >
+);
 }
 
 export default ClienteForm;

@@ -1,5 +1,5 @@
-.formulario {
-  width: 400px;
+.formulario-productos {
+  width: 100%;
   margin: 5px auto;
   padding: 20px;
   border: 1px solid #ccc;
@@ -24,14 +24,7 @@
   box-sizing: border-box;
 }
 
-.formulario button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-}
+
 
 .formulario button:hover {
   background-color: #0056b3;
@@ -41,5 +34,37 @@
   margin: 20px 0;
   padding: 20px 0;
   background-color: antiquewhite;
+}
+
+.btn-crear-producto {
+ font-family: karla, sans-serif;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #0056b3;
+  color: white!important;
+  margin: 10px 5px;
+}
+.btn-crear-producto:hover {
+  background-color: green!important;
+  color: white!important;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-cancelar {
+  font-family: karla, sans-serif;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: red;
+  color: white;
+  margin: 10px 5px;
+}
+
+.btn-cancelar:hover {
+  background-color: black!important;
+  color: red!important;
+ 
 }
 

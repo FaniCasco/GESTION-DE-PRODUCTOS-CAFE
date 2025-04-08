@@ -11,7 +11,6 @@ import { LuPackagePlus } from "react-icons/lu";
 import { FaWeightHanging } from "react-icons/fa";
 import { FaBarcode } from "react-icons/fa6";
 import { FaRegFileAlt } from "react-icons/fa";
-
 import '../Styles/ProductosForm.css';
 
 function ProductoForm({ producto, onProductoCreado, onProductoActualizado, onCancel }) {
@@ -76,7 +75,7 @@ function ProductoForm({ producto, onProductoCreado, onProductoActualizado, onCan
 
     return (
         <Container>
-            <div className="formulario">
+            <div className="formulario-productos">
                 <Form onSubmit={handleSubmit}>
                     <h1 className='titulo-form-productos'>  <LuPackagePlus /> Agregar producto
                     </h1>
@@ -137,11 +136,11 @@ function ProductoForm({ producto, onProductoCreado, onProductoActualizado, onCan
                             </Form.Group>
                         </Col>
                     </Row>
-                    <Button variant="primary" type="submit">
+                    <Button variant="primary" type="submit" className='btn-crear-producto'>
                         {producto ? 'Actualizar Producto' : 'Crear Producto'}
                     </Button>
                     {producto && (
-                        <Button variant="secondary" onClick={onCancel}>
+                        <Button variant="secondary" className='btn-cancelar' onClick={onCancel}>
                             Cancelar
                         </Button>
                     )}

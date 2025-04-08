@@ -1,10 +1,27 @@
 .formulario {
-    width: 80%;
-    
+    width: 80%;   
    
   }
   
   .formulario .form-group {
     margin-bottom: 10px;
   }
-  
+  .btn:hover {
+    background-color: green!important;
+    color: white!important;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  .btn {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.cancelar {
+  background-color: red !important;
+}
+.cancelar:hover {
+  background-color: rgb(14, 13, 13)!important;
+  color: red !important;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
