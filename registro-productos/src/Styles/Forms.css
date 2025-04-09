@@ -1,0 +1,80 @@
+/* Estilos base para todos los formularios */
+.professional-form {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .professional-form .form-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+  }
+  
+  .professional-form .form-header h2 {
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  
+  .professional-form .form-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #3498db, #9b59b6);
+  }
+  
+  .professional-form .form-label {
+    font-weight: 500;
+    color: #34495e;
+    margin-bottom: 0.5rem;
+  }
+  
+  .professional-form .form-control {
+    border: 1px solid #dfe6e9;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+    box-shadow: none;
+  }
+  
+  .professional-form .form-control:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+  }
+  
+  .professional-form .form-text {
+    font-size: 0.85rem;
+    color: #7f8c8d;
+  }
+  
+  /* Grupos de formulario con mejor espaciado */
+  .form-group-enhanced {
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  
+  /* Iconos dentro de inputs */
+  .input-with-icon {
+    position: relative;
+  }
+  
+  .input-with-icon .form-control {
+    padding-left: 2.5rem;
+  }
+  
+  .input-with-icon .input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #7f8c8d;
+    z-index: 5;
+  }

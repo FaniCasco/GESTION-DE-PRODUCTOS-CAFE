@@ -2,46 +2,33 @@ const express = require('express');
 const router = express.Router();
 const { pool } = require('../db');
 
-// Obtener todo el stock
+// Actualizar stock
+router.put('/:codigo_producto', async (req, res) => {
+  const { cantidad, operacion } = req.body;
+  const { codigo_producto } = req.params;
+  
+  try {
+    const result = await pool.query(
+      'SELECT * FROM actualizar_stock($1, $2, $3) AS nuevo_stock',
+      [codigo_producto, cantidad, operacion || 'incrementar']
+    );
+    res.json({ success: true, stock: result.rows[0].nuevo_stock });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+// Obtener estado de stock
 router.get('/', async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM Stock');
-    res.json(result.rows);
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error del servidor');
-  }
-});
-
-// Obtener stock de un producto
-router.get('/:codigo_producto', async (req, res) => {
-  try {
-    const { codigo_producto } = req.params;
-    const result = await pool.query('SELECT * FROM Stock WHERE codigo_producto = $1', [codigo_producto]);
-    if (result.rows.length > 0) {
-      res.json(result.rows[0]);
-    } else {
-      res.status(404).send('Stock no encontrado');
-    }
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error del servidor');
-  }
-});
-
-// Actualizar stock de un producto
-router.put('/:codigo_producto', async (req, res) => {
-  try {
-    const { codigo_producto } = req.params;
-    const { cantidad } = req.body;
-    await pool.query(
-      'UPDATE Stock SET cantidad = $1 WHERE codigo_producto = $2',
-      [cantidad, codigo_producto]
-    );
-    res.send('Stock actualizado');
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error del servidor');
+    const { rows } = await pool.query(`
+      SELECT s.*, p.nombre, p.precio_venta_efectivo
+      FROM stock s
+      JOIN productos p ON s.codigo_producto = p.codigo
+    `);
+    res.json(rows);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 });
 
