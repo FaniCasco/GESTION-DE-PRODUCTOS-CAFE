@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ClienteForm from '../components/ClienteForm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { IoIosPersonAdd, IoIosPerson } from 'react-icons/io';
+
 import Swal from 'sweetalert2';
 import '../Styles/Clientes.css';
-import { IoIosPersonAdd } from "react-icons/io";
+
 
 function Clientes() {
   const [clientes, setClientes] = useState([]);
@@ -70,13 +72,18 @@ function Clientes() {
 
   return (
     <div className="clientes-container">
-      <h2>Lista de Clientes</h2>
-      <button onClick={handleAgregar} className="agregar-cliente-btn">
-        <FontAwesomeIcon icon={faPlus} /><IoIosPersonAdd /> Agregar Cliente
-      </button>
+      <div className="clientes-header">
+        <h2 className="clientes-title">
+          <IoIosPerson className="me-2" /> Lista de Clientes
+        </h2>
+        <button onClick={handleAgregar} className="agregar-btn">
+          <IoIosPersonAdd className="me-2" />
+          Agregar Cliente
+        </button>
+      </div>
+
       <table className="clientes-table">
-        <thead> 
-     
+        <thead>
           <tr>
             <th>DNI</th>
             <th>Nombre</th>
@@ -126,6 +133,8 @@ function Clientes() {
       )}
     </div>
   );
+
+
 }
 
 export default Clientes;

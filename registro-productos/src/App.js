@@ -16,6 +16,7 @@ import ClienteFormPage from './pages/ClienteFormPage';
 import VentasPage from './pages/VentasPage';
 import StockPage from './pages/StockPage';
 
+
 function App() {
   return (
     <Router>
@@ -37,9 +38,13 @@ function App() {
             
             {/* Ventas */}
             <Route path="/ventas" element={<VentasPage />} />
+            <Route path="/ventas/agregar" element={<VentasPage />} />
+            <Route path="/ventas/editar/:id" element={<VentasPage />} />
             
             {/* Stock */}
             <Route path="/stock" element={<StockPage />} />
+            <Route path="/stock/agregar" element={<StockPage />} />
+           
           </Routes>
         </div>
         <Footer />

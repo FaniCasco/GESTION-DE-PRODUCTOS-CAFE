@@ -1,80 +1,111 @@
-/* Estilos base para todos los formularios */
-.professional-form {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  }
+/* Contenedor principal del formulario */
+.client-form-container {
+  padding: 2rem 1rem;
+  font-family: karla, sans-serif;
+ 
+}
+
+/* Card general para el formulario */
+.client-form-card {
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+/* Header del formulario */
+.client-form-header {
+  background: linear-gradient(135deg,  #e4b96c, #f9edd8, #f3daac);
+  border-bottom: 1px solid #dee2e6;
+  padding: 1.25rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+/* Título */
+.client-form-header h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  display: flex;
+  align-items: center;
+
   
-  .professional-form .form-header {
-    text-align: center;
-    margin-bottom: 2rem;
-    color: #2c3e50;
-  }
-  
-  .professional-form .form-header h2 {
-    font-weight: 600;
-    position: relative;
-    padding-bottom: 0.5rem;
-  }
-  
-  .professional-form .form-header h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: linear-gradient(90deg, #3498db, #9b59b6);
-  }
-  
-  .professional-form .form-label {
-    font-weight: 500;
-    color: #34495e;
-    margin-bottom: 0.5rem;
-  }
-  
-  .professional-form .form-control {
-    border: 1px solid #dfe6e9;
-    border-radius: 6px;
-    padding: 0.75rem 1rem;
-    transition: all 0.3s ease;
-    box-shadow: none;
-  }
-  
-  .professional-form .form-control:focus {
-    border-color: #3498db;
-    box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
-  }
-  
-  .professional-form .form-text {
-    font-size: 0.85rem;
-    color: #7f8c8d;
-  }
-  
-  /* Grupos de formulario con mejor espaciado */
-  .form-group-enhanced {
-    margin-bottom: 1.5rem;
-    position: relative;
-  }
-  
-  /* Iconos dentro de inputs */
-  .input-with-icon {
-    position: relative;
-  }
-  
-  .input-with-icon .form-control {
-    padding-left: 2.5rem;
-  }
-  
-  .input-with-icon .input-icon {
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #7f8c8d;
-    z-index: 5;
-  }
+}
+
+/* Body del formulario */
+.client-form-body {
+  background-color: white;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+/* Etiquetas personalizadas */
+.form-label-custom {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Inputs */
+.form-control-custom {
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-control-custom:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Botones */
+.btn-client-primary {
+  background-color: #0d6efd; /* azul */
+  border-color: #0d6efd;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  color: white;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-client-primary:hover {
+  background-color: #198754; /* verde bootstrap */
+  border-color: #157347;
+}
+
+
+.btn-client-outline {
+  border-radius: 0.5rem;
+  font-weight: 500;
+  color: white;
+  background-color: #f53506;
+}
+
+.btn-client-outline:hover {
+  background-color: white;
+  border: solid 1px #f53506;
+ color: #f53506;
+}
+.cliente-form-wrapper {
+  max-width: 900px; /* o el mismo ancho que uses en el form */
+  margin: 0 auto;
+  background-color: white;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.titulo-agregar {
+  background-color: #f0f0f0; /* o el color que quieras */
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-weight: bold;
+}

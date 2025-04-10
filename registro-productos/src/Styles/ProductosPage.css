@@ -1,72 +1,117 @@
-/*Styles/ProductosPage.css*/
 .productos-container {
-  text-align: center;
-  padding: 20px;
-  background-color: #f3daac;
+  padding: 2rem;
+  background: linear-gradient(to bottom right, #f3daac, #fffbe6);
+  font-family: 'Karla', sans-serif;
 }
-.producto-form-page {
-  text-align: center;
-margin-top: -5%;
 
-}
-.producto-form-page h1 {
-  font-size: 2rem;
+.productos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
 }
-.productos-table {
-  font-family: Karla, sans-serif;
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  background: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  
+
+.productos-header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
 }
 
-.productos-table th, .productos-table td {
+.btn-agregar-producto {
+  background-color: #198754;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-agregar-producto:hover {
+  background-color: #157347;
+  cursor: pointer;
+}
+
+.productos-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.productos-table th,
+.productos-table td {
   padding: 12px;
-  border: 1px solid #ddd;
   text-align: center;
+  border-bottom: 1px solid #eee;
 }
 
 .productos-table th {
-  background-color: #333;
+  background-color: #343a40;
   color: white;
+  font-weight: 600;
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  margin: 0 4px;
+  color: #198754;
+  transition: transform 0.2s ease;
+}
+
+.btn-icon:hover {
+  transform: scale(1.2);
+}
+
+.btn-icon.delete {
+  color: #dc3545;
 }
 
 .no-data {
-  text-align: center;
-  font-size: 18px;
-  padding: 20px;
-  color: #777;
+  padding: 1rem;
+  color: #666;
+  font-style: italic;
 }
 
-
+/* Modal */
 .modal {
-  display: flex !important; /* Asegura que se muestre */
+  display: flex !important;
   align-items: center;
   justify-content: center;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1000;
 }
 
-
 .modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  min-width: 300px;
-  max-width: 500px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
 }
 
 .close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
   font-size: 24px;
+  font-weight: bold;
   cursor: pointer;
+  color: #aaa;
 }
+
+.close:hover {
+  color: #000;
+}
+
 

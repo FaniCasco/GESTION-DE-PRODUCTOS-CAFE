@@ -1,17 +1,16 @@
-// pages/ProductosPage.js
 import React, { useState, useEffect } from 'react';
-//import axios from 'axios';
 import api from "../api";
 import Swal from 'sweetalert2';
 import '../Styles/ProductosPage.css';
 import ProductoForm from '../components/ProductoForm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FaClipboardList } from "react-icons/fa";
 
 function ProductosPage() {
   const [productos, setProductos] = useState([]);
   const [productoAEditar, setProductoAEditar] = useState(null);
+  const [mostrarFormulario, setMostrarFormulario] = useState(false);
 
   useEffect(() => {
     cargarProductos();
@@ -20,7 +19,6 @@ function ProductosPage() {
   const cargarProductos = () => {
     api.get('http://localhost:5000/productos').then((response) => {
       setProductos(response.data);
-      console.log('Productos cargados:', response.data);
     });
   };
 
@@ -44,35 +42,40 @@ function ProductosPage() {
   };
 
   const handleEditar = (producto) => {
-    console.log('Botón Editar clickeado, producto:', producto);
     setProductoAEditar(producto);
+    setMostrarFormulario(true);
   };
 
-  // Verifica si `productoAEditar` cambia
-  useEffect(() => {
-    console.log('Estado actualizado del modal:', productoAEditar);
-  }, [productoAEditar]);
-
-
+  const handleAgregar = () => {
+    setProductoAEditar(null);
+    setMostrarFormulario(true);
+  };
 
   const cerrarModal = () => {
-    setProductoAEditar(null);
+    setMostrarFormulario(false);
   };
 
   return (
     <div className="productos-container">
-      <h1 style={{ fontFamily: " Karla, sans-serif" }}><FaClipboardList /> Lista de Productos</h1>
+      <div className="productos-header">
+        <h1><FaClipboardList className="me-2" /> Lista de Productos</h1>
+        <button className="btn-agregar-producto" onClick={handleAgregar}>
+          <FontAwesomeIcon icon={faPlus} className="me-2" />
+          Agregar Producto
+        </button>
+      </div>
+
       <table className="productos-table">
         <thead>
           <tr>
             <th>Código</th>
             <th>Nombre</th>
             <th>Precio Costo</th>
-            <th>Precio Venta Efectivo</th>
-            <th>Precio Venta Crédito</th>
-            <th>Precio Venta Débito</th>
+            <th>Venta Efectivo</th>
+            <th>Venta Crédito</th>
+            <th>Venta Débito</th>
             <th>Ganancia</th>
-            <th>Peso (gms.)</th> {/* Nueva columna para el peso */}
+            <th>Peso (g)</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -82,65 +85,43 @@ function ProductosPage() {
               <tr key={producto.codigo}>
                 <td>{producto.codigo}</td>
                 <td>{producto.nombre}</td>
-                <td>{producto.precio_costo}</td>
-                <td>{producto.precio_venta_efectivo}</td>
-                <td>{producto.precio_venta_credito}</td>
-                <td>{producto.precio_venta_debito}</td>
-                <td>{producto.ganancia}</td>
-                <td>{producto.peso}</td> 
+                <td>${producto.precio_costo}</td>
+                <td>${producto.precio_venta_efectivo}</td>
+                <td>${producto.precio_venta_credito}</td>
+                <td>${producto.precio_venta_debito}</td>
+                <td>${producto.ganancia}</td>
+                <td>{producto.peso}</td>
                 <td>
-                  <button
-                    onClick={() => handleEditar(producto)}
-                    style={{
-                      background: 'none',
-                      border: 'none',
-                      cursor: 'pointer',
-                      marginRight: '5px'
-                    }}
-                  >
-                    <FontAwesomeIcon icon={faEdit} style={{ color: '#4CAF50' }} /> {/* Icono de edición */}
-
+                  <button className="btn-icon" onClick={() => handleEditar(producto)}>
+                    <FontAwesomeIcon icon={faEdit} />
                   </button>
-                  <button
-                    onClick={() => handleEliminar(producto.codigo)}
-                    style={{
-                      background: 'none',
-                      border: 'none',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    <FontAwesomeIcon icon={faTrash} style={{ color: '#f44336' }} /> {/* Icono de eliminación */}
-
+                  <button className="btn-icon delete" onClick={() => handleEliminar(producto.codigo)}>
+                    <FontAwesomeIcon icon={faTrash} />
                   </button>
                 </td>
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan="8">No hay productos disponibles</td>
+              <td colSpan="9" className="no-data">No hay productos disponibles</td>
             </tr>
           )}
         </tbody>
       </table>
 
-      {productoAEditar && (
+      {mostrarFormulario && (
         <div className="modal">
           <div className="modal-content">
-            <span className="close" onClick={cerrarModal}>
-              &times;
-            </span>
-            {(() => {
-              try {
-                return <ProductoForm producto={productoAEditar} onProductoActualizado={cargarProductos} onCancel={cerrarModal} />;
-              } catch (error) {
-                console.error("Error al renderizar ProductoForm:", error);
-                return <p>Error al cargar el formulario.</p>;
-              }
-            })()}
+            <span className="close" onClick={cerrarModal}>&times;</span>
+            <ProductoForm
+              producto={productoAEditar}
+              onProductoCreado={cargarProductos}
+              onProductoActualizado={cargarProductos}
+              onCancel={cerrarModal}
+            />
           </div>
         </div>
       )}
-
     </div>
   );
 }

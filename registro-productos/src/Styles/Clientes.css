@@ -1,64 +1,82 @@
+
 .clientes-container {
-  width: 90%;
-  margin: 5px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  background-color: #f3daac;
+  padding: 2rem;
+  font-family: 'Karla', sans-serif;
+  background-color: #f9f9f9;
+  min-height: 100vh;
 }
 
 .clientes-container h2 {
-  margin: 20px 0;
-  padding: 20px 0;
- 
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
 }
+
+.clientes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f7e1b5;
+  padding: 1rem 1.5rem;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+
+.agregar-btn {
+  background-color: #198754;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.agregar-btn:hover {
+  background-color: #157347;
+}
+
 
 .clientes-table {
   width: 100%;
+  background-color: white;
   border-collapse: collapse;
-  margin-top: 20px;
+  border-radius: 0.75rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
 }
 
-.clientes-table th,
-.clientes-table td {
-  border: 1px solid #350909;
-  padding: 8px;
+.clientes-table th, .clientes-table td {
+  padding: 0.75rem;
   text-align: left;
+  border-bottom: 1px solid #dee2e6;
 }
 
 .clientes-table th {
-  background-color: #f2f2f2;
+  background-color: #f3daac;
+  font-weight: 600;
 }
 
-.agregar-cliente-btn,
 .editar-cliente-btn,
 .eliminar-cliente-btn {
-  padding: 8px 12px;
-  margin-right: 5px;
-  cursor: pointer;
+  background: none;
   border: none;
-  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  font-size: 1.1rem;
 }
 
-.agregar-cliente-btn {
-  background-color:  #0d7dda;;
-  color: white;
-  font-family: karla, sans-serif;
-  font-weight: 500;
-}
-.agregar-cliente-btn:hover {
-  background-color: #4caf50; 
+.editar-cliente-btn:hover {
+  color: #198754;
 }
 
-.editar-cliente-btn {
-  background-color: #2196f3;
-  color: white;
-}
-
-.eliminar-cliente-btn {
-  background-color: #f44336;
-  color: white;
+.eliminar-cliente-btn:hover {
+  color: #dc3545;
 }
 
 .modal {
@@ -67,22 +85,91 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0,0,0,0.4);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 9999;
 }
 
 .modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 60%;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 800px;
+  position: relative;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
 }
 
 .close {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  right: 1rem;
+  top: 1rem;
+  font-size: 1.5rem;
   cursor: pointer;
+  color: #999;
 }
+
+.close:hover {
+  color: #000;
+}
+
+/**/
+.clientes-container {
+  background-color: #f7e1b5; /* igual al fondo de productos */
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+.clientes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.clientes-title {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.agregar-btn {
+  background-color: #198754; /* verde bootstrap */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.agregar-btn:hover {
+  background-color: #157347;
+}
+
+.clientes-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.clientes-table th,
+.clientes-table td {
+  padding: 0.75rem;
+  text-align: left;
+  
+}
+.clientes-table th {
+  background-color: #343a40;
+  color: white;
+  font-weight: 600;
+}
+/**/

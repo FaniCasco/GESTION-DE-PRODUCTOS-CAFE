@@ -1,9 +1,9 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ClienteForm from '../components/ClienteForm';
-import Container from 'react-bootstrap/Container';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import '../Styles/Forms.css';
 
 function ClienteFormPage() {
   const { id } = useParams();
@@ -11,7 +11,6 @@ function ClienteFormPage() {
   const [cliente, setCliente] = React.useState(null);
   const [loading, setLoading] = React.useState(!!id);
 
-  // Obtener datos del cliente si estamos en modo edición
   React.useEffect(() => {
     if (id) {
       const fetchCliente = async () => {
@@ -45,27 +44,31 @@ function ClienteFormPage() {
 
   if (loading) {
     return (
-      <Container className="my-5">
-        <div className="text-center">
-          <div className="spinner-border text-primary" role="status">
-            <span className="visually-hidden">Cargando...</span>
-          </div>
-          <p className="mt-2">Cargando datos del cliente...</p>
+      <div className="client-form-container text-center">
+        <div className="spinner-border text-primary" role="status">
+          <span className="visually-hidden">Cargando...</span>
         </div>
-      </Container>
+        <p className="mt-3">Cargando datos del cliente...</p>
+      </div>
     );
   }
 
   return (
-    <Container className="my-5">
-      <h2 className="mb-4">{id ? 'Editar Cliente' : 'Agregar Nuevo Cliente'}</h2>
-      <ClienteForm
-        cliente={cliente}
-        onClienteCreado={() => handleSubmitSuccess('create')}
-        onClienteActualizado={() => handleSubmitSuccess('edit')}
-        onCancel={handleCancel}
-      />
-    </Container>
+    <div className="client-form-container">
+      <div className="cliente-form-wrapper client-form-card">
+        <div className="client-form-header">
+          <h2>{id ? 'Editar Cliente' : 'Agregar Nuevo Cliente'}</h2>
+        </div>
+        <div className="client-form-body p-4">
+          <ClienteForm
+            cliente={cliente}
+            onClienteCreado={() => handleSubmitSuccess('create')}
+            onClienteActualizado={() => handleSubmitSuccess('edit')}
+            onCancel={handleCancel}
+          />
+        </div>
+      </div>
+    </div>
   );
 }
 

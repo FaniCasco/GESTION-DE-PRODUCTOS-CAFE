@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Form, Button, Row, Col, Container, Card } from 'react-bootstrap';
 import { FaSave, FaTimes, FaEdit, FaUser, FaIdCard, FaHome, FaPhone } from 'react-icons/fa';
 import Swal from 'sweetalert2';
-import '../Styles/ClientesForm.css';
+//import '../Styles/ClientesForm.css';
 import '../Styles/Forms.css';
 
 function ClienteForm({ cliente, onClienteCreado, onClienteActualizado, onCancel }) {
